@@ -38,7 +38,7 @@ export function Contact() {
         <div className="absolute inset-0 bg-grid-sm opacity-30 mask-radial-fade" />
         <div className="absolute inset-0 ring-1 ring-inset ring-border/60 rounded-3xl pointer-events-none" />
 
-        <div className="relative p-6 sm:p-8 lg:p-10 grid sm:grid-cols-2 gap-3 sm:gap-4">
+        <div className="relative p-4 sm:p-8 lg:p-10 grid sm:grid-cols-2 gap-3 sm:gap-4">
           {channels.map((c, i) => {
             const Icon = c.icon;
             return (
@@ -51,18 +51,20 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="group flex items-center gap-4 p-4 sm:p-5 rounded-xl border border-border/60 bg-background/40 hover:border-primary/50 hover:bg-background/70 transition-all"
+                className="group flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl border border-border/60 bg-background/40 hover:border-primary/50 hover:bg-background/70 transition-all"
               >
-                <div className="size-11 grid place-items-center rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/20 group-hover:scale-110 transition-transform">
+                <div className="size-10 sm:size-11 shrink-0 grid place-items-center rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/20 group-hover:scale-110 transition-transform">
                   <Icon className="size-4 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                     {c.label}
                   </div>
-                  <div className="text-sm font-medium truncate">{c.value}</div>
+                  <div className="text-[13px] sm:text-sm font-medium truncate">
+                    {c.value}
+                  </div>
                 </div>
-                <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                <ArrowUpRight className="size-4 shrink-0 text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
               </motion.a>
             );
           })}

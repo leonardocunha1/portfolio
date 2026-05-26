@@ -2,7 +2,7 @@
 
 Portfólio pessoal — QA Engineer & Full-Stack Developer.
 
-🔗 [leonardocunha1.github.io/portfolio](https://leonardocunha1.github.io/portfolio) _(em breve)_
+🔗 [Clique aqui para abrir o site](https://portfolio-leonardocunha1s-projects.vercel.app/) 
 
 ---
 

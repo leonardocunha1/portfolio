@@ -94,7 +94,7 @@ export function Nav() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden mt-3 glass rounded-2xl p-3 flex flex-col"
+              className="md:hidden mt-3 rounded-2xl p-3 flex flex-col bg-card border border-border/60 shadow-[0_12px_40px_oklch(0.05_0_0/0.6)]"
             >
               {links.map((link) => (
                 <a

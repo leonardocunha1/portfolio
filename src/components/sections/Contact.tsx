@@ -19,7 +19,7 @@ const channels = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "/in/leonardo-cunha-8a6170263",
+    value: "in/leonardo-cunha",
     href: profile.linkedin,
   },
   {
@@ -51,7 +51,7 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="group flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl border border-border/60 bg-background/40 hover:border-primary/50 hover:bg-background/70 transition-all"
+                className="group min-w-0 flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl border border-border/60 bg-background/40 hover:border-primary/50 hover:bg-background/70 transition-all"
               >
                 <div className="size-10 sm:size-11 shrink-0 grid place-items-center rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/20 group-hover:scale-110 transition-transform">
                   <Icon className="size-4 text-primary" />

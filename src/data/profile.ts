@@ -140,39 +140,86 @@ export type Project = {
   metrics?: Array<{ label: string; value: string }>;
   links: { github?: string; live?: string; case?: string };
   featured?: boolean;
+  image?: string;
+  gallery?: string[];
 };
 
-// MOCK — substituir pelos projetos reais
 export const projects: Project[] = [
   {
-    name: "[Projeto 01]",
-    tagline: "tagline curta do projeto",
-    description: "Descrição mais detalhada",
-    stack: ["TypeScript", "React", "Node.js", "PostgreSQL"],
-    metrics: [
-      { label: "users", value: "—" },
-      { label: "uptime", value: "99.9%" },
+    name: "Q2 Suporte",
+    tagline: "plataforma interna · operações & RBAC",
+    description:
+      "Plataforma interna da Q2 Ingressos para operações de eventos. Centraliza verificação de divergências financeiras (ingressos, bar, mesas), ciclo de vida de ingressos (cancelamento, reimpressão, ativação), gestão de POS/catraca, bots de automação via Selenium, RBAC granular por roles/permissões e exports em PDF/Excel.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "React Query",
+      "Zustand",
+      "Fastify",
+      "Prisma",
+      "PostgreSQL",
+      "SQL Server",
+      "Selenium",
     ],
-    links: { github: "#", live: "#" },
+    links: {},
     featured: true,
-  },
-  {
-    name: "[Projeto 02]",
-    tagline: "tagline curta do projeto",
-    description: "Descrição mais detalhada",
-    stack: ["Cypress", "Playwright", "Node.js"],
-    metrics: [
-      { label: "testes", value: "+250" },
-      { label: "coverage", value: "92%" },
+    image: "/q2support-project/img-2.png",
+    gallery: [
+      "/q2support-project/img-1.png",
+      "/q2support-project/img-3.png",
+      "/q2support-project/img-4.png",
     ],
-    links: { github: "#" },
   },
   {
-    name: "[Projeto 03]",
-    tagline: "tagline curta do projeto",
-    description: "Descrição mais detalhada",
-    stack: [".NET", "C#", "SQL Server"],
-    links: { github: "#" },
+    name: "Sacada Premium",
+    tagline: "landing page B2B · envidraçamento premium",
+    description:
+      "Redesign do site institucional da Sacada Premium, fabricante do sistema Skyline® de envidraçamento de sacadas sem roldanas. Foco em vidraçarias, construtoras e arquitetos, com captura de leads, SEO técnico e estética premium inspirada em referências como Lumon, Solarlux e Linear.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Motion",
+      "React Hook Form",
+      "Zod",
+      "Resend",
+    ],
+    links: { live: "https://sacadapremium-lp.vercel.app/" },
+    image: "/projeto-sacada.png",
+  },
+  {
+    name: "Residential Expenses",
+    tagline: "estudo .NET · finanças residenciais",
+    description:
+      "Aplicação full-stack para gerenciar finanças de uma residência compartilhada — moradores registram receitas e despesas, categorizam transações e acompanham o balanço individual e coletivo via dashboard com gráficos. Backend em Clean Architecture (.NET 9 + EF Core + PostgreSQL + JWT) e frontend tipado com hooks gerados a partir da OpenAPI via Orval.",
+    stack: [
+      ".NET 9",
+      "ASP.NET Core",
+      "EF Core",
+      "PostgreSQL",
+      "JWT",
+      "Clean Architecture",
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "Recharts",
+      "Orval",
+    ],
+    links: { github: "https://github.com/leonardocunha1/residential-expenses" },
+    image: "/residential-expenses/004.png",
+    gallery: [
+      "/residential-expenses/001.png",
+      "/residential-expenses/002.png",
+      "/residential-expenses/003.png",
+      "/residential-expenses/005.png",
+      "/residential-expenses/006.png",
+      "/residential-expenses/007.png",
+      "/residential-expenses/008.png",
+    ],
   },
   {
     name: "[Projeto 04]",

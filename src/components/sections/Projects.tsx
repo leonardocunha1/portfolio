@@ -1,10 +1,34 @@
+import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Github, ExternalLink, Folder } from "lucide-react";
+import {
+  ArrowUpRight,
+  Github,
+  ExternalLink,
+  Folder,
+  Lock,
+  Images,
+} from "lucide-react";
 import { Section } from "@/components/Section";
+import { Lightbox } from "@/components/Lightbox";
 import { projects } from "@/data/profile";
 import { cn } from "@/lib/utils";
 
+type OpenState = { projectIndex: number; imageIndex: number } | null;
+
 export function Projects() {
+  const [open, setOpen] = useState<OpenState>(null);
+
+  const galleryOf = (p: (typeof projects)[number]): string[] => {
+    const list: string[] = [];
+    if (p.image) list.push(p.image);
+    if (p.gallery) {
+      for (const src of p.gallery) {
+        if (!list.includes(src)) list.push(src);
+      }
+    }
+    return list;
+  };
+
   return (
     <Section
       id="projetos"
@@ -18,6 +42,9 @@ export function Projects() {
     >
       <div className="grid md:grid-cols-2 gap-5">
         {projects.map((p, idx) => {
+          const gallery = galleryOf(p);
+          const extraCount = gallery.length - 1;
+
           return (
             <motion.article
               key={p.name}
@@ -38,6 +65,32 @@ export function Projects() {
               <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
               </div>
+
+              {gallery.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpen({ projectIndex: idx, imageIndex: 0 })
+                  }
+                  aria-label={`Abrir galeria de ${p.name}`}
+                  className="relative -mx-6 sm:-mx-7 -mt-6 sm:-mt-7 mb-5 overflow-hidden rounded-t-2xl border-b border-border/60 block cursor-pointer"
+                >
+                  <div className="aspect-[16/9] w-full bg-gradient-to-br from-secondary/60 to-background/60 grid place-items-center">
+                    <img
+                      src={gallery[0]}
+                      alt={p.name}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+                  {extraCount > 0 && (
+                    <span className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/80 backdrop-blur border border-border/60 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                      <Images className="size-3" />+{extraCount}
+                    </span>
+                  )}
+                </button>
+              )}
 
               <div className="relative mb-4">
                 <div className="size-11 grid place-items-center rounded-xl border border-primary/30 bg-gradient-to-br from-primary/15 to-accent/5">
@@ -109,6 +162,12 @@ export function Projects() {
                       live
                     </a>
                   )}
+                  {!p.links.github && !p.links.live && (
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Lock className="size-3.5" />
+                      projeto interno
+                    </span>
+                  )}
                 </div>
                 <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
               </div>
@@ -130,6 +189,18 @@ export function Projects() {
           </a>
         </p>
       </div>
+
+      {open && (
+        <Lightbox
+          images={galleryOf(projects[open.projectIndex])}
+          index={open.imageIndex}
+          alt={projects[open.projectIndex].name}
+          onClose={() => setOpen(null)}
+          onIndexChange={(next) =>
+            setOpen({ projectIndex: open.projectIndex, imageIndex: next })
+          }
+        />
+      )}
     </Section>
   );
 }

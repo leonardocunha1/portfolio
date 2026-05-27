@@ -37,6 +37,9 @@ Thumbs.db
 # vite
 .vite
 
+# playwright mcp (snapshots/logs temporários)
+.playwright-mcp
+
 # claude code (local config)
 .claude
 

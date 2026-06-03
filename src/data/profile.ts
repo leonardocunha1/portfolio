@@ -222,6 +222,33 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "StockControl",
+    tagline: "estudo .NET · controle de estoque & RBAC",
+    description:
+      "Sistema de controle de estoque para pequenas e médias operações: cadastro de produtos e depósitos, movimentações (entrada, saída e ajuste) com saldo recalculado a cada registro, alertas de baixo estoque por job diário e importação de produtos em massa via CSV com relatório linha a linha. Controle de acesso por papel (Operator, Manager e Admin), backend em .NET 10 com Hangfire para o processamento das importações e o job recorrente, e suíte end-to-end em Playwright.",
+    stack: [
+      ".NET 10",
+      "EF Core",
+      "PostgreSQL",
+      "JWT",
+      "Hangfire",
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "TanStack Query",
+      "Playwright",
+    ],
+    links: { github: "https://github.com/leonardocunha1/controle-estoque" },
+    image: "/stock-control/dashboard.png",
+    gallery: [
+      "/stock-control/login.png",
+      "/stock-control/products.png",
+      "/stock-control/stock.png",
+      "/stock-control/imports.png",
+    ],
+  },
+  {
     name: "El Bigodón Barber Shop",
     tagline: "sistema full-stack · agendamento, pontos & cupons",
     description:

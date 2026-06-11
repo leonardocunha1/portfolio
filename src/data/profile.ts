@@ -146,6 +146,47 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "LH Tests",
+    tagline: "ferramenta de QA · gestão de testes & integração Jira",
+    description:
+      "Ferramenta própria de gerenciamento de testes (test management) criada para substituir o plugin pago Zephyr do Jira. Centraliza casos de teste com passos (ação, dado, resultado esperado), ciclos de execução, registro de resultados por passo (aprovado/reprovado/bloqueado) e rastreabilidade caso ↔ requisito. Dashboards com cobertura por módulo, taxa de aprovação e métricas de chamados de QA consultadas ao vivo no Jira via JQL. Integra com o Jira (cria cards a partir de execuções reprovadas) e com o Outline (documentação), com RBAC granular de papéis e permissões gerenciáveis pela própria aplicação. Backend em Clean Architecture enxuta (UseCases sem MediatR, Mapperly, FluentValidation) coberto por testes de unidade (xUnit/Moq) e de integração com PostgreSQL real via Testcontainers.",
+    stack: [
+      ".NET 10",
+      "ASP.NET Core",
+      "EF Core",
+      "PostgreSQL",
+      "JWT",
+      "Clean Architecture",
+      "FluentValidation",
+      "xUnit",
+      "Testcontainers",
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "TanStack Query",
+      "Zustand",
+      "Recharts",
+    ],
+    links: {},
+    featured: true,
+    image: "/lh-tests/dashboard.png",
+    gallery: [
+      "/lh-tests/login.png",
+      "/lh-tests/projects-list.png",
+      "/lh-tests/test-cases.png",
+      "/lh-tests/test-case-detail.png",
+      "/lh-tests/cycle-detail.png",
+      "/lh-tests/execution-detail.png",
+      "/lh-tests/roles-permissions.png",
+      "/lh-tests/permission-matrix.png",
+      "/lh-tests/users.png",
+      "/lh-tests/jira-integration.png",
+      "/lh-tests/outline-integration.png",
+    ],
+  },
+  {
     name: "Q2 Suporte",
     tagline: "plataforma interna · operações & RBAC",
     description:

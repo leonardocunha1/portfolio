@@ -229,7 +229,7 @@ export const projects: Project[] = [
       "shadcn/ui",
       "Radix UI",
     ],
-    links: { live: "https://sacadapremium-lp.vercel.app/" },
+    links: { live: "https://sacadapremiumrp.vercel.app/" },
     image: "/sacada-premium/cover.png",
     gallery: [
       "/sacada-premium/sistema.png",
